@@ -1,12 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import Login from './App/Screens/Login';
+import { ClerkProvider, SignedIn, SignedOut } from '@clerk/clerk-expo';
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigation from './App/Navigations/TabNavigation';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ClerkProvider publishableKey="pk_test_c3dlZXBpbmctcGFuZGEtNjUuY2xlcmsuYWNjb3VudHMuZGV2JA">
+      <SignedIn>
+        <NavigationContainer>
+          <TabNavigation />
+        </NavigationContainer>
+      </SignedIn>
+      <SignedOut>
+        <Login />
+      </SignedOut>
+    </ClerkProvider>
   );
 }
 
@@ -18,3 +30,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
