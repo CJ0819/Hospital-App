@@ -9,7 +9,7 @@ import TabNavigation from './App/Navigations/TabNavigation';
 
 export default function App() {
   return (
-    <ClerkProvider publishableKey="pk_test_c3dlZXBpbmctcGFuZGEtNjUuY2xlcmsuYWNjb3VudHMuZGV2JA">
+    <ClerkProvider publishableKey="">
       <SignedIn>
         <NavigationContainer>
           <TabNavigation />
